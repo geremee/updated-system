@@ -832,3 +832,15 @@
   .modal-footer .btn { width: 100%; }
   .toast-region { top: auto; bottom: 84px; right: var(--space-3); left: var(--space-3); max-width: none; }
 }
+
+/* ============ PDF rows ============ */
+.pdf-row { transition: border-color var(--dur-fast) var(--ease-out); }
+.pdf-row:hover { border-color: var(--brand); }
+
+/* ============ Presenter ============ */
+#presenter-stage canvas {
+  image-rendering: auto;
+  transition: opacity 200ms ease;
+}
+#presenter-stage { user-select: none; }
+#presenter-counter, #presenter-progress { z-index: 100; }

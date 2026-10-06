@@ -14,8 +14,20 @@ import { renderStudio } from './features/studio.js';
 import { renderAnnouncements, ensureAnnouncementsLoaded } from './features/announcements.js';
 import { renderMedia } from './features/media.js';
 import { renderSettings } from './features/settings.js';
+import { renderPresenter } from './features/presenter.js';
 
 function bootstrap() {
+  const params = new URLSearchParams(location.search);
+  const presentDeckId = params.get('present');
+
+  if (presentDeckId) {
+    // Presenter window — take over the whole page
+    const root = document.getElementById('app');
+    root.innerHTML = '';
+    renderPresenter(root, presentDeckId);
+    return;
+  }
+
   const savedTheme = store.get(STORAGE_KEYS.theme) || DEFAULT_PREFS.theme;
   setTheme(savedTheme);
 

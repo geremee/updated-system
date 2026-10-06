@@ -74,3 +74,4 @@ export function openModal({ title, body, footer, size = 'md', onClose }) {
 
   return { close, bodyEl };
 }
+
